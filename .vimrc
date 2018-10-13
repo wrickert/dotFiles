@@ -1,3 +1,12 @@
+" Vim-plug
+"call plug#begin('~/.vim/plugged')
+
+" Enable plugins
+" YCM is deferred
+"Plug 'Valloric/YouCompleteMe', { 'on': [] }
+
+" End plug
+"call plug#end()
 
 " YCM Configuration
 "let g:ycm_global_ycm_extra_conf = '/home/jake/.ycm_extra_conf_global.py'
@@ -6,11 +15,11 @@
 "source ~/.ycm_extra_conf_globlist
 
 " Completion enabler
-"command -bar StartCompletion call StartCompletion()
-"function StartCompletion()
-"    call plug#load('YouCompleteMe')
-"    call youcompleteme#Enable()
-"endfunction
+command -bar StartCompletion call StartCompletion()
+function StartCompletion()
+    call plug#load('YouCompleteMe')
+    call youcompleteme#Enable()
+endfunction
 
 " YCM Start Conditions
 "autocmd FileType c call StartCompletion()
@@ -20,17 +29,15 @@
 "autocmd FileType java call StartCompletion()
 
 " Start YCM if there is a .ycm_extra_conf.py
-"if filereadable('./.ycm_extra_conf.py')
-"    call StartCompletion()
-"endif
+if filereadable('./.ycm_extra_conf.py')
+    call StartCompletion()
+endif
  
 " Other configuration
 filetype plugin indent on
  
 "colorscheme Tomorrow-Night
-"colorscheme basic-light
-"colorscheme moonfly
-"colorscheme cobalt
+color slate
 syntax on
 set ignorecase
 set smartcase
@@ -58,7 +65,7 @@ nnoremap gp :!git push<CR>
 
 " Numbers by default
 set number
-set foldcolumn=0
+"set foldcolumn=0
 
 " Generic code function. Set width, tabstop, smarttab, numbering
 function SetCode ()
@@ -203,5 +210,3 @@ endfunction
 
 " Command to set binFormat
 command -nargs=1 BinFormat let b:binFormat=<f-args>
-
-set tabstop=2 expandtab
